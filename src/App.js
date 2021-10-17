@@ -10,7 +10,6 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#181818";
       document.body.style.color = "white";
-      // document.textarea.style.backgroundColor = "";
     } else {
       setMode("light");
       document.body.style.color = "black";
