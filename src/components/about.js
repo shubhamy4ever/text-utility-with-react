@@ -6,7 +6,7 @@ export default function About() {
     backgroundColor: "white",
   });
   function styleChange() {
-    if (style.backgroundColor == "white") {
+    if (style.backgroundColor === "white") {
       setStyle({
         color: "white",
         backgroundColor: "black",

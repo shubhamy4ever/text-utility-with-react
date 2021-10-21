@@ -25,6 +25,11 @@ const Textform = (props) => {
     let newText = state.split(/[ ]+/);
     setState(newText.join(" "));
   }
+  function handleRandomText() {
+    let newtext =
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est beatae rem iure? Natus voluptas velit esse ea asperiores eum beatae exercitationem, et iste sit fuga libero dignissimos aut, voluptatibus nisi quam totam tempore ut, consectetur eius incidunt dolor iure nihil?";
+    setState(newtext);
+  }
   return (
     <>
       <div>
@@ -64,6 +69,12 @@ const Textform = (props) => {
           onClick={handleExtraSpaces}
         >
           Remove Extra Spaces
+        </button>
+        <button
+          className="btn btn-primary mx-1 my-2"
+          onClick={handleRandomText}
+        >
+          Random Text
         </button>
         <button className="btn btn-danger mx-1 my-2" onClick={handleClickClear}>
           Clear Text

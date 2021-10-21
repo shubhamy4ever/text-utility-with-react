@@ -1,4 +1,4 @@
-import About from "./components/about";
+// import About from "./components/about";
 import Navbar from "./components/navbar";
 import Textform from "./components/textform";
 import { useState } from "react";
