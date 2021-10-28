@@ -35,7 +35,7 @@ const Textform = (props) => {
       <div>
         <div className="mb-3 my-4">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            <h1>{props.heading}</h1>
+            <h1>Analyze Your Text</h1>
           </label>
           <textarea
             className="form-control"
@@ -49,24 +49,55 @@ const Textform = (props) => {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-secondary mx-1 my-2" onClick={handleClickUP}>
+        <button
+          className="btn btn-secondary mx-1 my-2"
+          onClick={handleClickUP}
+          disabled={
+            state.split(" ").filter((element) => {
+              return element !== "";
+            }).length > 0
+              ? false
+              : true
+          }
+        >
           Convert to UpperCase
         </button>
         <button
           className="btn btn-secondary mx-1 my-2"
           onClick={handleClickLOW}
+          disabled={
+            state.split(" ").filter((element) => {
+              return element !== "";
+            }).length > 0
+              ? false
+              : true
+          }
         >
           Convert to lowerCase
         </button>
         <button
           className="btn btn-secondary mx-1 my-2"
           onClick={handleCopyText}
+          disabled={
+            state.split(" ").filter((element) => {
+              return element !== "";
+            }).length > 0
+              ? false
+              : true
+          }
         >
           Copy Text
         </button>
         <button
           className="btn btn-secondary mx-1 my-2"
           onClick={handleExtraSpaces}
+          disabled={
+            state.split(" ").filter((element) => {
+              return element !== "";
+            }).length > 0
+              ? false
+              : true
+          }
         >
           Remove Extra Spaces
         </button>
@@ -76,15 +107,28 @@ const Textform = (props) => {
         >
           Random Text
         </button>
-        <button className="btn btn-danger mx-1 my-2" onClick={handleClickClear}>
+        <button
+          className="btn btn-danger mx-1 my-2"
+          onClick={handleClickClear}
+          disabled={state.length > 0 ? false : true}
+        >
           Clear Text
         </button>
       </div>
       <div className="container my-1"></div>
       <h3>Text Summary</h3>
       <p>
-        Word Count:{state.split(" ").length} Letter:{state.length} <br />
-        {state.split(" ").length * 0.005} Minutes to read
+        Word Count:
+        {
+          state.split(/\s+/).filter((element) => {
+            return element !== "";
+          }).length
+        }{" "}
+        Letter:{state.length} <br />
+        {state.split(" ").filter((element) => {
+          return element !== "";
+        }).length * 0.005}{" "}
+        Minutes to read
       </p>
       <h5>Preview</h5>
       <p>{state.length > 0 ? state : "Enter text above to preview here"}</p>
